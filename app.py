@@ -28,7 +28,7 @@ def convert_and_resize(input_path):
     max_width, max_height = 144, 32
     img = Image.open(output_path)
     if img.width > max_width or img.height > max_height:
-        img.thumbnail((max_width, max_height), Image.ANTIALIAS)
+        img.thumbnail((max_width, max_height), Image.Resampling.LANCZOS)  # Using the high-quality downsampling
         img.save(output_path)
 
     return output_path
