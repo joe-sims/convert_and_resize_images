@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Configure upload folder and allowed extension
 UPLOAD_FOLDER = 'uploads'
-ALLOWED_EXTENSIONS = {'svg'}
+ALLOWED_EXTENSIONS = {'svg','png'}
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -19,7 +19,7 @@ def convert_and_resize(svg_input_path):
     # Convert SVG to PNG
     png_output_path = svg_input_path.rsplit('.', 1)[0] + '.png'
     cairosvg.svg2png(url=svg_input_path, write_to=png_output_path)
-    
+    ß
     # Resize the image if larger than 144x32
     max_width, max_height = 144, 32
     img = Image.open(png_output_path)
